@@ -1,0 +1,92 @@
+<!-- MAQUETA PARA LOGICA -->
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador APOD de la NASA</title>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>Explorador astronómico de la NASA</h1>
+        <p>Explora el universo a través de la fotografía astronómica del día.</p>
+    </header>
+
+    <main>
+
+        <!-- BUSCADOR POR FECHA -->
+        <section id="buscador">
+            <h2>Explora el universo</h2>
+
+            <form id="form-busqueda">
+                <label for="fecha-apod">Selecciona una fecha:</label>
+                <input type="date" id="fecha-apod">
+
+                <button type="submit">Buscar</button>
+            </form>
+
+            <p id="mensaje" role="status"></p>
+        </section>
+
+        <!-- FOTOGRAFIA ASTRONOMICA -->
+        <section id="fotografia">
+            <h2>Fotografía astronómica del día</h2>
+
+            <p id="fecha-publicacion">Fecha de publicación</p>
+
+            <h3 id="titulo-apod">Título de la fotografía</h3>
+
+            <img id="imagen-apod" src="" alt="Fotografía astronómica del día" hidden>
+
+            <p id="explicacion-apod">
+                Aquí aparecerá la explicación científica de la fotografía.
+            </p>
+
+            <a id="enlace-video" href="" target="_blank" rel="noopener noreferrer" hidden>
+                Ver el video en NASA
+            </a>
+
+            <button type="button" id="btn-favorito" disabled>
+                Guardar en favoritos
+            </button>
+
+        </section>
+
+        <!-- FAVORITOS -->
+        <section id="favoritos">
+            <h2>Mis favoritos</h2>
+
+            <p id="mensaje-favoritos">
+                Todavía no tienes fotografías favoritas.
+            </p>
+
+            <ul id="lista-favoritos">
+                <!-- JavaScript agregará los favoritos aquí -->
+            </ul>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer>
+        <p>NASA - COSMOS | Explorador astronómico</p>
+
+        <!-- AQUI VAN LOS NOMBRES LUEGO JEJE GRACIAS POR SU ATENCION LOS ESTIMO MUCHO BENDICIONES -->
+
+    </footer>
+
+    <!-- LIBRERIAS Y JAVASCRIPT -->
+    <script src="node_modules/dayjs/dayjs.min.js"></script>
+    <script src="node_modules/dayjs/locale/es.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
