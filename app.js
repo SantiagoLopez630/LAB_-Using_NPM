@@ -35,4 +35,5 @@ formBusqueda.addEventListener("submit", (e) => {
 
     // ! Log de prueba - Borrar antes de entrega
     console.log("El dato de fecha enviado es ", fechaApod.value);
+    
 });
