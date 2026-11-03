@@ -91,7 +91,7 @@
 
                     <div class="pt-4 border-top border-secundario-cosmico d-flex flex-column gap-2">
                         <a id="enlace-video" href="" target="_blank" rel="noopener noreferrer" class="btn btn-outline-info rounded-pill w-100 mb-2" hidden>
-                            <i class="bi bi-play-circle me-2"></i> Ver artículo completo en NASA
+                            <i class="bi bi-play-circle me-2"></i> Ver el video en NASA
                         </a>
 
                         <button type="button" id="btn-favorito" class="btn btn-favorito-nasa rounded-pill w-100 d-flex align-items-center justify-content-center gap-2" disabled>
@@ -167,14 +167,15 @@
         </div>
     </footer>
 
-    <!-- LIBRERÍAS DE TERCEROS -->
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/locale/es.js"></script>
+    <!-- LIBRERÍAS (Day.js instalado con npm) -->
+    <script src="node_modules/dayjs/dayjs.min.js"></script>
+    <script src="node_modules/dayjs/locale/es.js"></script>
     <!-- Anime.js para animaciones fluidas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-    <!-- Código JavaScript personalizado -->
-    <script src="app.js" defer></script>
+    <!-- Código JavaScript personalizado (el orden importa) -->
+    <script src="app.js"></script>
+    <script src="favoritos.js"></script>
 </body>
 
 </html>
