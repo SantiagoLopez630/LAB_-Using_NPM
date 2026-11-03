@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explorador Astronómico - NASA</title>
 
-    <!-- Google Fonts: Inter & Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -26,7 +25,7 @@
     <header class="py-4 border-bottom border-secundario-cosmico">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-2">
-                <span class="fw-bold tracking-wide text-uppercase font-inter">NASA  APOD</span>
+                <span class="fw-bold tracking-wide text-uppercase font-inter">NASA APOD</span>
             </div>
             <nav class="d-flex align-items-center gap-4">
                 <a href="#buscador" class="enlace-navegacion text-decoration-none">Explorar</a>
@@ -47,28 +46,32 @@
                     Una foto diferente del universo todos los dias!
                 </h1>
             </div>
-
         </section>
 
         <!-- SECCIÓN PRINCIPAL: FOTOGRAFÍA + INFORMACIÓN -->
         <section id="fotografia" class="tarjeta-cosmica overflow-hidden mb-5">
             <div class="row g-0">
-                <!-- CONTENEDOR DE LA IMAGEN CON ANIMACIÓN -->
-                <div class="col-lg-7 posicion-relativa contenedor-imagen-apod bg-oscuro-profundo min-vh-50 d-flex align-items-center justify-content-center">
+                
+
+                <div class="col-lg-7 posicion-relativa contenedor-imagen-apod bg-oscuro-profundo min-vh-50 d-flex align-items-center justify-content-center overflow-hidden">
                     
                     <!-- Indicador de Carga / Spinner con Anime.js -->
                     <div id="cargador-imagen" class="text-center p-4">
                         <div class="spinner-orbital mb-3 mx-auto"></div>
-                        <p class="small text-muted font-roboto tracking-wide">Cargando imagen...</p>
+                        <p class="small text-muted font-roboto tracking-wide mb-0">Explorando el cosmos...</p>
                     </div>
 
-                    <!-- Elemento Imagen APOD -->
+
                     <img id="imagen-apod" src="" alt="Fotografía astronómica del día" class="imagen-espacial w-100 h-100 object-fit-cover d-none">
                     
-    
+
+                    <div id="contenedor-video" class="ratio ratio-16x9 w-100 h-100 d-none">
+                        <iframe id="iframe-video" src="" title="Video APOD NASA" allowfullscreen></iframe>
+                    </div>
+
                 </div>
 
-                <!-- CONTENIDO INFORMATIVO DE LA IMAGEN -->
+
                 <div class="col-lg-5 p-4 p-md-5 d-flex flex-column justify-content-between bg-tarjeta-lateral">
                     <div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -90,19 +93,20 @@
                     </div>
 
                     <div class="pt-4 border-top border-secundario-cosmico d-flex flex-column gap-2">
-                        <a id="enlace-video" href="" target="_blank" rel="noopener noreferrer" class="btn btn-outline-info rounded-pill w-100 mb-2" hidden>
+                        <a id="enlace-video" href="" target="_blank" rel="noopener noreferrer" class="btn btn-outline-info rounded-pill w-100 mb-2 d-none">
                             <i class="bi bi-play-circle me-2"></i> Ver artículo completo en NASA
                         </a>
 
                         <button type="button" id="btn-favorito" class="btn btn-favorito-nasa rounded-pill w-100 d-flex align-items-center justify-content-center gap-2" disabled>
-                            <i class="bi bi-star-fill"></i> Guardar en mi colección
+                            <i class="bi bi-star"></i> Guardar en mi colección
                         </button>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- GRID DE EXPLORACIÓN (BUSCADOR Y FAVORITOS) -->
+
         <div class="row g-4">
             
             <!-- BUSCADOR POR FECHA -->
@@ -149,8 +153,7 @@
                             Aún no has guardado ninguna imagen.
                         </p>
 
-                        <ul id="lista-favoritos" class="lista-favoritos-estilo w-100 list-unstyled m-0 d-none">
-                            <!-- Los elementos guardados en JS se insertarán aquí dinámicamente -->
+                        <ul id="lista-favoritos" class="lista-favoritos-estilo w-100 list-unstyled m-0">
                         </ul>
                     </div>
                 </div>
