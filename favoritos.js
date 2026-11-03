@@ -1,13 +1,7 @@
-// ============================================================
-// FUNCIONALIDAD 3 — FAVORITOS (localStorage)
-// Depende de lo que está en app.js:
-//   - apodActual           -> { date: "2026-10-29", title: "..." }
-//   - cargarAPOD(fecha)    -> carga y muestra la APOD de esa fecha ("AAAA-MM-DD")
-// ============================================================
+
 
 const CLAVE_FAVORITOS = "favoritosApod";
 
-// ---------- Leer y guardar en localStorage ----------
 
 function obtenerFavoritos() {
   const guardado = localStorage.getItem(CLAVE_FAVORITOS);
@@ -30,8 +24,6 @@ function guardarFavoritos(favoritos) {
   localStorage.setItem(CLAVE_FAVORITOS, JSON.stringify(favoritos));
 }
 
-// ---------- Utilidades ----------
-
 function mostrarMensajeFavorito(texto) {
   document.getElementById("mensaje").textContent = texto;
 }
@@ -40,7 +32,6 @@ function yaEsFavorito(favoritos, fecha) {
   return favoritos.some(favorito => favorito.date === fecha);
 }
 
-// ---------- Agregar un favorito ----------
 
 function agregarFavorito() {
   if (!apodActual) {
@@ -55,7 +46,6 @@ function agregarFavorito() {
     return;
   }
 
-  // Solo guardamos lo necesario: date y title
   favoritos.push({
     date: apodActual.date,
     title: apodActual.title
@@ -66,7 +56,6 @@ function agregarFavorito() {
   mostrarMensajeFavorito("Fotografía guardada en favoritos");
 }
 
-// ---------- Mostrar la lista ----------
 
 function crearItemFavorito(favorito) {
   const item = document.createElement("li");
@@ -77,7 +66,6 @@ function crearItemFavorito(favorito) {
   boton.textContent =
     dayjs(favorito.date).format("D [de] MMMM [de] YYYY") + " — " + favorito.title;
 
-  // Al hacer clic se carga esa APOD
   boton.addEventListener("click", () => {
     cargarAPOD(favorito.date);
     document.getElementById("fotografia").scrollIntoView({ behavior: "smooth" });
@@ -94,7 +82,6 @@ function mostrarFavoritos() {
 
   lista.innerHTML = "";
 
-  // Con favoritos: se ve la lista y se oculta el mensaje "Aún no has guardado..."
   mensajeVacio.hidden = favoritos.length > 0;
   lista.classList.toggle("d-none", favoritos.length === 0);
 
@@ -103,7 +90,6 @@ function mostrarFavoritos() {
   });
 }
 
-// ---------- Eventos ----------
 
 document.getElementById("btn-favorito").addEventListener("click", agregarFavorito);
 document.addEventListener("DOMContentLoaded", mostrarFavoritos);
