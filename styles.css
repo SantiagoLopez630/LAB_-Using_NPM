@@ -1,11 +1,227 @@
 :root {
-    --fondo: #080d1a;
-    --panel: #111a2e;
-    --panel-secundario: #19243b;
-    --primario: #61dafb;
-    --texto: #f1f5f9;
-    --texto-secundario: #a8b5cc;
-    --borde: #293752;
-    --favorito: #ffd166;
-    --error: #ff6b6b;
+--color-nasa-azul-profundo: #0b3d91;
+--color-nasa-rojo: #fc3d21;
+--color-espacial-fondo: #05070f;
+--color-tarjeta-fondo: #0c101d;
+--color-tarjeta-lateral: #111628;
+--color-borde-cosmico: rgba(255, 255, 255, 0.08);
+--color-texto-principal: #f1f5f9;
+--color-texto-secundario: #94a3b8;
+
+--tipografia-inter: 'Inter', sans-serif;
+--tipografia-roboto: 'Roboto', sans-serif;
+
+
+}
+
+/* ==========================================================================
+ESTILOS GENERALES Y TIPOGRAFÍA
+========================================================================== */
+body.bg-espacial {
+background-color: var(--color-espacial-fondo);
+color: var(--color-texto-principal);
+font-family: var(--tipografia-roboto);
+min-height: 100vh;
+overflow-x: hidden;
+}
+
+.font-inter {
+font-family: var(--tipografia-inter);
+}
+
+.font-roboto {
+font-family: var(--tipografia-roboto);
+}
+
+.subtitulo-etiqueta {
+font-size: 0.75rem;
+letter-spacing: 2px;
+color: var(--color-nasa-rojo);
+font-weight: 600;
+}
+
+.titulo-principal {
+line-height: 1.15;
+letter-spacing: -0.5px;
+}
+
+.texto-cursivo {
+font-style: italic;
+font-weight: 300;
+color: var(--color-texto-secundario);
+}
+
+.texto-rojo-nasa {
+color: var(--color-nasa-rojo);
+}
+
+.texto-azul-nasa {
+color: #4b83f0;
+}
+
+.text-descripcion {
+color: var(--color-texto-secundario);
+line-height: 1.6;
+}
+
+.enlace-navegacion {
+color: var(--color-texto-secundario);
+font-size: 0.9rem;
+transition: color 0.3s ease;
+}
+
+.enlace-navegacion:hover {
+color: var(--color-texto-principal);
+}
+
+/* ==========================================================================
+COMPONENTES Y TARJETAS
+========================================================================== */
+.border-secundario-cosmico {
+border-color: var(--color-borde-cosmico) !important;
+}
+
+.tarjeta-cosmica {
+background-color: var(--color-tarjeta-fondo);
+border: 1px solid var(--color-borde-cosmico);
+border-radius: 16px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+transition: border-color 0.3s ease;
+}
+
+.tarjeta-cosmica:hover {
+border-color: rgba(252, 61, 33, 0.3);
+}
+
+.bg-tarjeta-lateral {
+background-color: var(--color-tarjeta-lateral);
+}
+
+.bg-oscuro-profundo {
+background-color: #03050a;
+}
+
+.min-vh-50 {
+min-height: 380px;
+}
+
+.linea-divisora {
+border-color: var(--color-borde-cosmico);
+opacity: 0.5;
+}
+
+/* ==========================================================================
+CONTENEDOR DE IMAGEN Y ETIQUETAS
+========================================================================== */
+.contenedor-imagen-apod {
+position: relative;
+overflow: hidden;
+}
+
+.imagen-espacial {
+opacity: 0;
+transition: filter 0.5s ease;
+}
+
+.etiqueta-flotante {
+position: absolute;
+bottom: 15px;
+left: 15px;
+background: rgba(5, 7, 15, 0.75);
+backdrop-filter: blur(8px);
+border: 1px solid var(--color-borde-cosmico);
+color: var(--color-texto-principal);
+font-size: 0.7rem;
+padding: 4px 12px;
+border-radius: 20px;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+/* SPINNER DE CARGA ORBITAL */
+.spinner-orbital {
+width: 45px;
+height: 45px;
+border: 3px solid rgba(252, 61, 33, 0.15);
+border-top-color: var(--color-nasa-rojo);
+border-right-color: var(--color-nasa-azul-profundo);
+border-radius: 50%;
+}
+
+/* ==========================================================================
+BOTONES Y FORMULARIO
+========================================================================== */
+.bg-azul-nasa-suave {
+background-color: rgba(11, 61, 145, 0.3);
+border: 1px solid rgba(11, 61, 145, 0.6);
+color: #93c5fd;
+}
+
+.btn-azul-nasa {
+background-color: var(--color-nasa-azul-profundo);
+color: #ffffff;
+border: none;
+font-weight: 500;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-azul-nasa:hover {
+background-color: #0d4ab2;
+color: #ffffff;
+transform: translateY(-1px);
+}
+
+.btn-favorito-nasa {
+background-color: transparent;
+border: 1px solid var(--color-nasa-rojo);
+color: var(--color-nasa-rojo);
+padding: 10px 20px;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+
+.btn-favorito-nasa:hover:not(:disabled) {
+background-color: var(--color-nasa-rojo);
+color: #ffffff;
+box-shadow: 0 4px 15px rgba(252, 61, 33, 0.4);
+}
+
+.btn-favorito-nasa:disabled {
+border-color: #334155;
+color: #475569;
+cursor: not-allowed;
+}
+
+.campo-entrada-cosmico {
+background-color: #080c16;
+border: 1px solid var(--color-borde-cosmico);
+color: var(--color-texto-principal);
+padding: 10px 15px;
+}
+
+.campo-entrada-cosmico:focus {
+background-color: #080c16;
+border-color: var(--color-nasa-azul-profundo);
+color: var(--color-texto-principal);
+box-shadow: 0 0 0 0.25rem rgba(11, 61, 145, 0.25);
+}
+
+/* ==========================================================================
+ESTILOS DE FAVORITOS
+========================================================================== */
+.lista-favoritos-estilo li {
+background: var(--color-tarjeta-lateral);
+border: 1px solid var(--color-borde-cosmico);
+border-radius: 10px;
+padding: 12px 16px;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+transition: transform 0.2s ease;
+}
+
+.lista-favoritos-estilo li:hover {
+transform: translateX(4px);
+border-color: rgba(255, 255, 255, 0.2);
 }
