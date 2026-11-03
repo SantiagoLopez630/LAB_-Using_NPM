@@ -1,93 +1,181 @@
-<!-- MAQUETA PARA LOGICA -->
-
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorador APOD de la NASA</title>
+    <title>Explorador Astronómico - NASA</title>
+
+    <!-- Google Fonts: Inter & Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="bg-espacial text-light">
 
-    <!-- ENCABEZADO -->
-    <header>
-        <h1>Explorador astronómico de la NASA</h1>
-        <p>Explora el universo a través de la fotografía astronómica del día.</p>
+    <!-- BARRA DE NAVEGACIÓN / CABECERA -->
+    <header class="py-4 border-bottom border-secundario-cosmico">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <span class="fw-bold tracking-wide text-uppercase font-inter">NASA  APOD</span>
+            </div>
+            <nav class="d-flex align-items-center gap-4">
+                <a href="#buscador" class="enlace-navegacion text-decoration-none">Explorar</a>
+                <a href="#favoritos" class="enlace-navegacion text-decoration-none">Favoritos</a>
+                <a href="https://science.nasa.gov" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                    NASA Oficial <i class="bi bi-box-arrow-up-right ms-1"></i>
+                </a>
+            </nav>
+        </div>
     </header>
 
-    <main>
+    <main class="container my-5">
 
-        <!-- BUSCADOR POR FECHA -->
-        <section id="buscador">
-            <h2>Explora el universo</h2>
-
-            <form id="form-busqueda">
-                <label for="fecha-apod">Selecciona una fecha:</label>
-                <input type="date" id="fecha-apod">
-
-                <button type="submit">Buscar</button>
-            </form>
-
-            <p id="mensaje" role="status"></p>
-        </section>
-
-        <!-- FOTOGRAFIA ASTRONOMICA -->
-        <section id="fotografia">
-            <h2>Fotografía astronómica del día</h2>
-
-            <p id="fecha-publicacion">Fecha de publicación</p>
-
-            <h3 id="titulo-apod">Título de la fotografía</h3>
-
-            <img id="imagen-apod" src="" alt="Fotografía astronómica del día" hidden>
-
-            <p id="explicacion-apod">
-                Aquí aparecerá la explicación científica de la fotografía.
-            </p>
-
-            <a id="enlace-video" href="" target="_blank" rel="noopener noreferrer" hidden>
-                Ver el video en NASA
-            </a>
-
-            <button type="button" id="btn-favorito" class="btn btn-danger" disabled>
-                <i class="bi bi-heart-fill me-1"></i> Guardar en favoritos
-            </button>
+        <!-- HERO ENCABEZADO -->
+        <section class="row mb-5 align-items-end">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold font-inter mt-2 titulo-principal">
+                    Una foto diferente del universo todos los dias!
+                </h1>
+            </div>
 
         </section>
 
-        <!-- FAVORITOS -->
-        <section id="favoritos">
-            <h2>Mis favoritos</h2>
+        <!-- SECCIÓN PRINCIPAL: FOTOGRAFÍA + INFORMACIÓN -->
+        <section id="fotografia" class="tarjeta-cosmica overflow-hidden mb-5">
+            <div class="row g-0">
+                <!-- CONTENEDOR DE LA IMAGEN CON ANIMACIÓN -->
+                <div class="col-lg-7 posicion-relativa contenedor-imagen-apod bg-oscuro-profundo min-vh-50 d-flex align-items-center justify-content-center">
+                    
+                    <!-- Indicador de Carga / Spinner con Anime.js -->
+                    <div id="cargador-imagen" class="text-center p-4">
+                        <div class="spinner-orbital mb-3 mx-auto"></div>
+                        <p class="small text-muted font-roboto tracking-wide">Cargando imagen...</p>
+                    </div>
 
-            <p id="mensaje-favoritos">
-                Todavía no tienes fotografías favoritas.
-            </p>
+                    <!-- Elemento Imagen APOD -->
+                    <img id="imagen-apod" src="" alt="Fotografía astronómica del día" class="imagen-espacial w-100 h-100 object-fit-cover d-none">
+                    
+    
+                </div>
 
-            <ul id="lista-favoritos">
-                <!-- JavaScript agregará los favoritos aquí -->
-            </ul>
+                <!-- CONTENIDO INFORMATIVO DE LA IMAGEN -->
+                <div class="col-lg-5 p-4 p-md-5 d-flex flex-column justify-content-between bg-tarjeta-lateral">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span id="fecha-publicacion" class="badge bg-azul-nasa-suave font-roboto text-uppercase px-3 py-2">
+                                Cargando fecha...
+                            </span>
+                            <span class="text-muted small font-roboto">NASA Archive</span>
+                        </div>
 
+                        <h2 id="titulo-apod" class="h3 font-inter fw-bold mb-3 text-white">
+                            Obteniendo título...
+                        </h2>
+
+                        <hr class="linea-divisora my-3">
+
+                        <p id="explicacion-apod" class="text-descripcion font-roboto lead fs-6">
+                            Conectando con los servidores de la NASA para obtener la información astronómica más reciente...
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-top border-secundario-cosmico d-flex flex-column gap-2">
+                        <a id="enlace-video" href="" target="_blank" rel="noopener noreferrer" class="btn btn-outline-info rounded-pill w-100 mb-2" hidden>
+                            <i class="bi bi-play-circle me-2"></i> Ver el video en NASA
+                        </a>
+
+                        <button type="button" id="btn-favorito" class="btn btn-favorito-nasa rounded-pill w-100 d-flex align-items-center justify-content-center gap-2" disabled>
+                            <i class="bi bi-star-fill"></i> Guardar en mi colección
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- GRID DE EXPLORACIÓN (BUSCADOR Y FAVORITOS) -->
+        <div class="row g-4">
+            
+            <!-- BUSCADOR POR FECHA -->
+            <section id="buscador" class="col-lg-6">
+                <div class="tarjeta-cosmica p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icono-bloque mb-3">
+                            <i class="bi bi-calendar-event fs-3 texto-azul-nasa"></i>
+                        </div>
+                        <h3 class="h4 font-inter fw-bold mb-3">Veamos imagenes de otras fechas!</h3>
+                        <p class="text-secondary font-roboto small">
+                            Selecciona cualquier día desde el 16 de junio de 1995 en adelante para explorar las fotografías publicadas por la NASA.
+                        </p>
+                    </div>
+
+                    <form id="form-busqueda" class="mt-4">
+                        <div class="mb-3">
+                            <label for="fecha-apod" class="form-label font-roboto small text-muted">Fecha de exploración:</label>
+                            <div class="input-group">
+                                <input type="date" id="fecha-apod" class="form-control campo-entrada-cosmico text-light">
+                                <button type="submit" class="btn btn-azul-nasa px-4">
+                                    Buscar <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p id="mensaje" class="small mt-2 text-warning mb-0" role="status"></p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECCIÓN DE FAVORITOS -->
+            <section id="favoritos" class="col-lg-6">
+                <div class="tarjeta-cosmica p-4 p-md-5 h-100 d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <span class="subtitulo-etiqueta text-uppercase font-roboto">Tu Galería</span>
+                            <h3 class="h4 font-inter fw-bold mb-0">Mis Capturas Favoritas</h3>
+                        </div>
+                        <i class="bi bi-bookmark-heart fs-3 texto-rojo-nasa"></i>
+                    </div>
+
+                    <div id="contenedor-favoritos" class="flex-grow-1 d-flex align-items-center justify-content-center">
+                        <p id="mensaje-favoritos" class="text-secondary font-roboto text-center my-4">
+                            Aún no has guardado ninguna imagen.
+                        </p>
+
+                        <ul id="lista-favoritos" class="lista-favoritos-estilo w-100 list-unstyled m-0 d-none">
+                            <!-- Los elementos guardados en JS se insertarán aquí dinámicamente -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
 
     </main>
 
-    <!-- PIE DE PAGINA -->
-    <footer>
-        <p>NASA - COSMOS | Explorador astronómico</p>
-
-        <!-- AQUI VAN LOS NOMBRES LUEGO JEJE GRACIAS POR SU ATENCION LOS ESTIMO MUCHO BENDICIONES -->
-
+    <!-- PIE DE PÁGINA -->
+    <footer class="mt-5 py-4 border-top border-secundario-cosmico text-center text-secondary font-roboto small">
+        <div class="container">
+            <p class="mb-1">NASA, Explorador de fotografía astronómica del día</p>
+            <p class="mb-0 text-muted opacity-75">Información e imágenes provistas mediante la API oficial de la NASA.</p>
+        </div>
     </footer>
 
-    <!-- LIBRERIAS Y JAVASCRIPT -->
+    <!-- LIBRERÍAS (Day.js instalado con npm) -->
     <script src="node_modules/dayjs/dayjs.min.js"></script>
     <script src="node_modules/dayjs/locale/es.js"></script>
-    <script src="app.js"></script>
-    <script src="apinasa.js"></script>
+    <!-- Anime.js para animaciones fluidas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
+    <!-- Código JavaScript personalizado (el orden importa) -->
+    <script src="app.js"></script>
+    <script src="favoritos.js"></script>
 </body>
 
 </html>
