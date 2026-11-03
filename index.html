@@ -26,8 +26,7 @@
     <header class="py-4 border-bottom border-secundario-cosmico">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-2">
-                <i class="bi bi-globe-americas fs-4 texto-rojo-nasa"></i>
-                <span class="fw-bold tracking-wide text-uppercase font-inter">NASA</span>
+                <span class="fw-bold tracking-wide text-uppercase font-inter">NASA  APOD</span>
             </div>
             <nav class="d-flex align-items-center gap-4">
                 <a href="#buscador" class="enlace-navegacion text-decoration-none">Explorar</a>
@@ -44,16 +43,11 @@
         <!-- HERO ENCABEZADO -->
         <section class="row mb-5 align-items-end">
             <div class="col-lg-8">
-                <span class="subtitulo-etiqueta text-uppercase tracking-wide font-roboto">Fotografía astronómica diaria</span>
                 <h1 class="display-4 fw-bold font-inter mt-2 titulo-principal">
-                    Contempla las maravillas del cosmos, <span class="texto-cursivo">un día a la vez.</span>
+                    Una foto diferente del universo todos los dias!
                 </h1>
             </div>
-            <div class="col-lg-4 mt-3 mt-lg-0">
-                <p class="text-secondary font-roboto mb-0">
-                    Una mirada cercana a las galaxias, nebulosas y descubrimientos espaciales capturados por el archivo oficial de la NASA.
-                </p>
-            </div>
+
         </section>
 
         <!-- SECCIÓN PRINCIPAL: FOTOGRAFÍA + INFORMACIÓN -->
@@ -65,13 +59,13 @@
                     <!-- Indicador de Carga / Spinner con Anime.js -->
                     <div id="cargador-imagen" class="text-center p-4">
                         <div class="spinner-orbital mb-3 mx-auto"></div>
-                        <p class="small text-muted font-roboto tracking-wide">Cargando imagen espacial...</p>
+                        <p class="small text-muted font-roboto tracking-wide">Cargando imagen...</p>
                     </div>
 
                     <!-- Elemento Imagen APOD -->
                     <img id="imagen-apod" src="" alt="Fotografía astronómica del día" class="imagen-espacial w-100 h-100 object-fit-cover d-none">
                     
-                    <span class="etiqueta-flotante font-roboto">NASA APOD</span>
+    
                 </div>
 
                 <!-- CONTENIDO INFORMATIVO DE LA IMAGEN -->
@@ -118,8 +112,7 @@
                         <div class="icono-bloque mb-3">
                             <i class="bi bi-calendar-event fs-3 texto-azul-nasa"></i>
                         </div>
-                        <span class="subtitulo-etiqueta text-uppercase font-roboto">Explora el archivo</span>
-                        <h3 class="h4 font-inter fw-bold mb-3">Viaja a otra fecha histórica</h3>
+                        <h3 class="h4 font-inter fw-bold mb-3">Veamos imagenes de otras fechas!</h3>
                         <p class="text-secondary font-roboto small">
                             Selecciona cualquier día desde el 16 de junio de 1995 en adelante para explorar las fotografías publicadas por la NASA.
                         </p>
@@ -153,7 +146,7 @@
 
                     <div id="contenedor-favoritos" class="flex-grow-1 d-flex align-items-center justify-content-center">
                         <p id="mensaje-favoritos" class="text-secondary font-roboto text-center my-4">
-                            Aún no has guardado ninguna imagen astronómica. ¡Explora e inicia tu colección!
+                            Aún no has guardado ninguna imagen.
                         </p>
 
                         <ul id="lista-favoritos" class="lista-favoritos-estilo w-100 list-unstyled m-0 d-none">
@@ -169,7 +162,7 @@
     <!-- PIE DE PÁGINA -->
     <footer class="mt-5 py-4 border-top border-secundario-cosmico text-center text-secondary font-roboto small">
         <div class="container">
-            <p class="mb-1">NASA - COSMOS | Explorador de fotografía astronómica del día</p>
+            <p class="mb-1">NASA, Explorador de fotografía astronómica del día</p>
             <p class="mb-0 text-muted opacity-75">Información e imágenes provistas mediante la API oficial de la NASA.</p>
         </div>
     </footer>
